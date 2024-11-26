@@ -1,0 +1,55 @@
+=====navigateToEditViewRecord.html============
+
+<template>
+   <div class="slds-box">
+        <lightning-card title="Navigate to View">
+            <lightning-button label="View Details" onclick={NavigateToView}></lightning-button>
+        </lightning-card>
+        <lightning-card title="Navigate to Edit">
+            <lightning-button label="Edit Details" onclick={NavigateToEdit}></lightning-button>
+        </lightning-card>
+   </div> 
+</template>
+
+========navigateToEditViewRecord.js=================
+
+import { LightningElement } from 'lwc';
+import { NavigationMixin } from 'lightning/navigation';
+export default class NavigateToEditViewRecord extends NavigationMixin(LightningElement) {
+    NavigateToView(){
+        this[NavigationMixin.Navigate]({
+            type:'standard__recordPage',
+            attributes:{
+                recordId:'0018E00001LCYEkQAP',
+                objectApiName:'Account',
+                actionName:'view'
+            }
+           
+
+        });
+    }
+    NavigateToEdit(){
+        this[NavigationMixin.Navigate]({
+            type:'standard__recordPage',
+            attributes:{
+                recordId:'0018E00001LCYEkQAP',
+                objectApiName:'Account',
+                actionName:'edit'
+            }
+           
+
+        });
+    }
+}
+
+=========navigateToEditViewRecord.js-meta.xml===============
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+</LightningComponentBundle>
